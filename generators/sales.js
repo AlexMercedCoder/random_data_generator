@@ -1,5 +1,6 @@
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 const { faker } = require('@faker-js/faker');
+const format = require('date-fns/format')
 
 // Create Writer
 const csvWriter = createCsvWriter({
@@ -25,7 +26,7 @@ const randProd = () => Math.floor(Math.random() * 5000) + 1
 for(let i = 1; i < 100001; i++){
     records.push({
         id: i,
-        purchaseDate: faker.date.past(1),
+        purchaseDate: format(faker.date.past(1), "yyyy-MM-dd HH:MM:SS"),
         custId: randCust(),
         productId: randProd(),
         productQty: Math.floor(Math.random() * 9) + 1
