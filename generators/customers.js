@@ -5,11 +5,12 @@ const { faker } = require('@faker-js/faker');
 const csvWriter = createCsvWriter({
     path: '/home/alexmerced/development/scratch/data-generator/out/customers.csv',
     header: [
-        {id: 'id', title: "ID"},
-        {id: 'name', title: 'NAME'},
-        {id: 'birthdate', title: 'BIRTH_DATE'},
-        {id: 'phone', title: "PHONE"},
-        {id: 'favColor', title:"FAVORITE_COLOR"}
+        {id: 'id', title: "customer_id"},
+        {id: 'firstName', title: 'first_name'},
+        {id: 'lastName', title: 'last_name'},
+        {id: 'streetAddress', title: "street_address"},
+        {id: 'city', title:"city"},
+        {id: 'state', title:"state"}
 
     ]
 });
@@ -20,10 +21,11 @@ const records = []
 for(let i = 1; i < 10001; i++){
     records.push({
         id: i,
-        name: `${faker.name.firstName()} ${faker.name.lastName()}`,
-        birthdate: faker.date.past(20,'2000-01-01T00:00:00.000Z'),
-        phone: faker.phone.phoneNumber(),
-        favColor: faker.vehicle.color()
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        streetAddress: faker.address.streetAddress(),
+        city: faker.address.city(),
+        state: faker.address.stateAbbr()
 
     })
 }
