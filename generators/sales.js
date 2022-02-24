@@ -26,7 +26,7 @@ const randProd = () => Math.floor(Math.random() * 5000) + 1;
 for (let i = 1; i < 100001; i++) {
   records.push({
     id: i,
-    purchaseDate: `${format(faker.date.past(1), "yyyy-MM-dd HH:MM:SS")}`,
+    purchaseDate: `${format(faker.date.past(1), "yyyy-MM-dd HH:MM:ss")}`,
     custId: randCust(),
     productId: randProd(),
     productQty: Math.floor(Math.random() * 9) + 1,
